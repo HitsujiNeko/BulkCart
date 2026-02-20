@@ -105,10 +105,10 @@
 ---
 
 ### 3.2 🤖 プロジェクト管理ドキュメント作成
-- [ ] 開発タスク 20 件を Issue フォーマットで Markdown 作成
-- [ ] Priority / Labels の定義表を作成
-- [ ] Sprint（2週間）スケジュール表を作成
-- [ ] docs/project-management/ に保存
+- [x] 開発タスク 20 件を Issue フォーマットで Markdown 作成
+- [x] Priority / Labels の定義表を作成
+- [x] Sprint（2週間）スケジュール表を作成
+- [x] docs/project-management/ に保存
 
 **注**: 実際の GitHub Projects 設定は 👤人間が行う（ワンクリック作業）
 
