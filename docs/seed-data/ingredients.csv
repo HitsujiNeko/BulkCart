@@ -1,0 +1,107 @@
+name,aliases,category,unit,avg_price_per_unit
+鶏むね,"[""鶏胸"",""とりむね"",""鶏ムネ"",""chicken breast""]",meat,g,50
+豚ロース,"[""豚肉"",""ポークロース"",""pork loin""]",meat,g,80
+牛ひき肉,"[""牛ミンチ"",""ground beef""]",meat,g,120
+ささみ,"[""鶏ささみ"",""鶏ささ身"",""chicken tender""]",meat,g,70
+豚ひき肉,"[""豚ミンチ"",""ground pork""]",meat,g,60
+豚バラ,"[""豚ばら肉"",""pork belly""]",meat,g,90
+牛モモ,"[""牛もも肉"",""beef thigh""]",meat,g,150
+鶏もも,"[""鶏もも肉"",""とりもも"",""chicken thigh""]",meat,g,70
+豚モモ,"[""豚もも肉"",""pork thigh""]",meat,g,70
+合いびき肉,"[""合挽き肉"",""ミックスミンチ""]",meat,g,80
+鶏レバー,"[""鶏肝"",""chicken liver""]",meat,g,40
+豚レバー,"[""豚肝"",""pork liver""]",meat,g,50
+ラム肉,"[""羊肉"",""lamb""]",meat,g,200
+鴨肉,"[""鴨"",""duck""]",meat,g,250
+手羽元,"[""鶏手羽元"",""chicken wing drumette""]",meat,g,60
+手羽先,"[""鶏手羽先"",""chicken wing""]",meat,g,60
+豚ヒレ,"[""豚ひれ肉"",""pork tenderloin""]",meat,g,120
+牛ヒレ,"[""牛ひれ肉"",""beef tenderloin""]",meat,g,400
+豚肩ロース,"[""豚肩肉"",""pork shoulder""]",meat,g,75
+牛肩ロース,"[""牛肩肉"",""beef shoulder""]",meat,g,180
+鮭,"[""サーモン"",""salmon"",""しゃけ""]",fish,g,150
+サバ,"[""さば"",""mackerel""]",fish,g,100
+マグロ,"[""まぐろ"",""tuna"",""ツナ""]",fish,g,200
+イワシ,"[""いわし"",""sardine""]",fish,g,80
+サンマ,"[""さんま"",""pacific saury""]",fish,g,90
+タラ,"[""たら"",""cod""]",fish,g,120
+ブリ,"[""ぶり"",""yellowtail""]",fish,g,180
+アジ,"[""あじ"",""horse mackerel""]",fish,g,90
+カツオ,"[""かつお"",""bonito""]",fish,g,150
+エビ,"[""海老"",""えび"",""shrimp""]",fish,g,250
+イカ,"[""いか"",""squid""]",fish,g,200
+タコ,"[""たこ"",""octopus""]",fish,g,300
+ホタテ,"[""帆立"",""scallop""]",fish,g,400
+ツナ缶,"[""シーチキン"",""canned tuna""]",fish,個,100
+サバ缶,"[""鯖缶"",""canned mackerel""]",fish,個,150
+卵,"[""たまご"",""玉子"",""egg""]",egg_dairy,個,15
+ヨーグルト,"[""yogurt"",""プレーンヨーグルト""]",egg_dairy,g,5
+牛乳,"[""ミルク"",""milk""]",egg_dairy,ml,1
+チーズ,"[""cheese"",""プロセスチーズ""]",egg_dairy,g,30
+クリームチーズ,"[""cream cheese""]",egg_dairy,g,50
+モッツァレラチーズ,"[""mozzarella""]",egg_dairy,g,60
+カッテージチーズ,"[""cottage cheese""]",egg_dairy,g,40
+バター,"[""butter""]",egg_dairy,g,20
+生クリーム,"[""fresh cream""]",egg_dairy,ml,10
+豆乳,"[""soy milk""]",egg_dairy,ml,2
+ブロッコリー,"[""broccoli""]",vegetable,g,5
+ほうれん草,"[""spinach""]",vegetable,g,4
+小松菜,"[""komatsuna""]",vegetable,g,3
+玉ねぎ,"[""onion"",""たまねぎ""]",vegetable,g,2
+トマト,"[""tomato""]",vegetable,g,6
+キャベツ,"[""cabbage""]",vegetable,g,2
+レタス,"[""lettuce""]",vegetable,g,3
+にんじん,"[""carrot"",""人参""]",vegetable,g,2
+じゃがいも,"[""potato"",""ジャガイモ""]",vegetable,g,2
+さつまいも,"[""sweet potato"",""サツマイモ""]",vegetable,g,3
+大根,"[""daikon"",""radish""]",vegetable,g,2
+白菜,"[""chinese cabbage"",""ハクサイ""]",vegetable,g,2
+もやし,"[""bean sprouts""]",vegetable,g,1
+ピーマン,"[""bell pepper""]",vegetable,g,4
+パプリカ,"[""paprika""]",vegetable,g,8
+ナス,"[""eggplant"",""茄子""]",vegetable,g,4
+きゅうり,"[""cucumber""]",vegetable,g,3
+アボカド,"[""avocado""]",vegetable,個,100
+かぼちゃ,"[""pumpkin"",""カボチャ""]",vegetable,g,3
+ズッキーニ,"[""zucchini""]",vegetable,g,5
+アスパラガス,"[""asparagus""]",vegetable,g,10
+オクラ,"[""okra""]",vegetable,g,8
+枝豆,"[""edamame""]",vegetable,g,7
+いんげん,"[""green beans""]",vegetable,g,6
+れんこん,"[""lotus root""]",vegetable,g,5
+ごぼう,"[""burdock root""]",vegetable,g,4
+長ネギ,"[""green onion"",""ねぎ""]",vegetable,g,3
+にんにく,"[""garlic""]",vegetable,g,15
+しょうが,"[""ginger""]",vegetable,g,10
+セロリ,"[""celery""]",vegetable,g,4
+パクチー,"[""coriander"",""cilantro""]",vegetable,g,8
+米,"[""白米"",""ご飯"",""rice""]",grain,g,1
+玄米,"[""brown rice""]",grain,g,2
+オートミール,"[""oatmeal"",""オーツ麦""]",grain,g,3
+パスタ,"[""スパゲッティ"",""pasta""]",grain,g,2
+そば,"[""蕎麦"",""soba""]",grain,g,3
+うどん,"[""udon""]",grain,g,2
+ラーメン,"[""中華麺"",""ramen""]",grain,g,2
+パン,"[""食パン"",""bread""]",grain,g,3
+全粒粉パン,"[""whole wheat bread""]",grain,g,4
+ライ麦パン,"[""rye bread""]",grain,g,5
+醤油,"[""soy sauce"",""しょうゆ""]",seasoning,ml,1
+塩麹,"[""shio koji""]",seasoning,g,5
+みりん,"[""mirin""]",seasoning,ml,1
+料理酒,"[""cooking sake""]",seasoning,ml,1
+酢,"[""vinegar""]",seasoning,ml,1
+ごま油,"[""sesame oil""]",seasoning,ml,5
+オリーブオイル,"[""olive oil""]",seasoning,ml,3
+サラダ油,"[""vegetable oil""]",seasoning,ml,2
+味噌,"[""miso""]",seasoning,g,2
+砂糖,"[""sugar""]",seasoning,g,1
+塩,"[""salt""]",seasoning,g,1
+コショウ,"[""pepper"",""胡椒""]",seasoning,g,10
+カレー粉,"[""curry powder""]",seasoning,g,8
+鶏がらスープの素,"[""chicken stock""]",seasoning,g,5
+豆腐,"[""tofu"",""絹豆腐"",""木綿豆腐""]",other,g,3
+納豆,"[""natto""]",other,個,30
+きのこ類,"[""mushroom"",""しいたけ"",""しめじ"",""えのき""]",vegetable,g,5
+海苔,"[""nori"",""のり""]",seasoning,g,20
+わかめ,"[""wakame"",""海藻""]",vegetable,g,15
+こんにゃく,"[""konjac""]",other,g,2
