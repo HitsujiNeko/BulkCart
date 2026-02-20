@@ -1,0 +1,18 @@
+# lib/supabase ディレクトリ
+
+このディレクトリには Supabase クライアント設定が配置されます。
+
+## 予定ファイル
+
+- `client.ts` - クライアントサイド用 Supabase クライアント（`createBrowserClient`）
+- `server.ts` - サーバーサイド用 Supabase クライアント（`createServerClient`）
+- `middleware.ts` - Supabase Auth ミドルウェアヘルパー
+
+## 使い分け
+
+- **client.ts**: React コンポーネント内、クライアント側の認証フロー
+- **server.ts**: API Routes, Server Components, Server Actions
+
+## 実装予定
+
+Phase 3.4（Supabase 設定）で実装予定

@@ -1,0 +1,19 @@
+# types ディレクトリ
+
+このディレクトリにはプロジェクト全体の TypeScript 型定義が配置されます。
+
+## 予定ファイル
+
+- `database.ts` - Supabase テーブル型（Supabase CLI で自動生成）
+- `api.ts` - API Request/Response 型
+- `models.ts` - ドメインモデル型（Recipe, MealPlan, GroceryList等）
+
+## 型定義の原則
+
+- `any` 型は原則禁止
+- すべての型は strict mode で動作すること
+- API の Request/Response は Zod スキーマと組み合わせる
+
+## 実装予定
+
+Phase 3.4（Supabase 設定）以降に実装予定
