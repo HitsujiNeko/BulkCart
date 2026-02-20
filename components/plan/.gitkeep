@@ -1,0 +1,15 @@
+# components/plan ディレクトリ
+
+このディレクトリには献立関連コンポーネントが配置されます。
+
+## 予定コンポーネント
+
+- `PlanCard.tsx` - 献立カード（1食分の表示）
+- `PlanGrid.tsx` - 献立グリッド（7日×2食）
+- `PlanGenerator.tsx` - 献立生成ボタン/ローディング
+- `PlanFilter.tsx` - 献立フィルター（日付、食事タイプ）
+- `NutritionSummary.tsx` - 栄養サマリー（PFC表示）
+
+## 実装予定
+
+Phase 4.3（献立表示画面実装）で実装予定

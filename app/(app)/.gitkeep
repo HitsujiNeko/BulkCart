@@ -1,0 +1,33 @@
+# app/(app) ディレクトリ
+
+このディレクトリにはメインアプリケーションページが配置されます（認証必須）。
+
+## ディレクトリ構成
+
+- `layout.tsx` - アプリ共通レイアウト（Header, Navigation）
+- `plan/` - 献立関連ページ
+  - `current/page.tsx` - 現在の週次献立
+  - `history/page.tsx` - 過去の献立履歴
+- `recipes/` - レシピ関連ページ
+  - `page.tsx` - レシピ一覧
+  - `[id]/page.tsx` - レシピ詳細
+- `grocery/` - 買い物リスト
+  - `page.tsx` - 買い物リスト
+- `prep/` - 作り置き段取り
+  - `page.tsx` - 作り置き段取り
+- `settings/` - 設定
+  - `page.tsx` - プロフィール設定
+  - `subscription/page.tsx` - サブスクリプション管理
+
+## Route Group
+
+`(app)` は Next.js App Router の Route Group 機能を使用。
+URL には `/app` は含まれず、`/plan/current` などとなります。
+
+## 認証保護
+
+`middleware.ts` で認証チェックを実装予定。
+
+## 実装予定
+
+Phase 4-6 で段階的に実装予定

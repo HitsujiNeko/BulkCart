@@ -1,0 +1,14 @@
+# components/grocery ディレクトリ
+
+このディレクトリには買い物リスト関連コンポーネントが配置されます。
+
+## 予定コンポーネント
+
+- `GroceryList.tsx` - 買い物リスト（カテゴリ別）
+- `GroceryItem.tsx` - 買い物アイテム（チェックボックス付き）
+- `GroceryExport.tsx` - エクスポート機能（PDF/テキスト）
+- `GroceryFilter.tsx` - フィルター（カテゴリ絞り込み）
+
+## 実装予定
+
+Phase 5.3 で買い物リスト生成 API 実装後、Phase 6 で実装予定

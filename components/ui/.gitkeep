@@ -1,0 +1,26 @@
+# components/ui ディレクトリ
+
+このディレクトリには shadcn/ui コンポーネントが配置されます。
+
+## コンポーネントの追加方法
+
+```bash
+npx shadcn-ui@latest add button
+npx shadcn-ui@latest add card
+npx shadcn-ui@latest add form
+# など
+```
+
+## 使用予定コンポーネント
+
+- Button
+- Card
+- Form
+- Input
+- Label
+- Select
+- Checkbox
+- Dialog
+- Dropdown Menu
+- Separator
+- Toast

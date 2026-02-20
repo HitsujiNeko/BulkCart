@@ -1,0 +1,15 @@
+# components/recipe ディレクトリ
+
+このディレクトリにはレシピ関連コンポーネントが配置されます。
+
+## 予定コンポーネント
+
+- `RecipeCard.tsx` - レシピカード（サムネイル、タイトル、PFC）
+- `RecipeDetail.tsx` - レシピ詳細（材料、手順、栄養情報）
+- `RecipeSearch.tsx` - レシピ検索（タグ、難易度、調理時間）
+- `RecipeFilter.tsx` - レシピフィルター
+- `NutritionBadge.tsx` - 栄養バッジ（高たんぱく、低脂質など）
+
+## 実装予定
+
+Phase 5.1 でレシピデータベース構築後、Phase 6 で実装予定
