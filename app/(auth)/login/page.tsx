@@ -52,10 +52,17 @@ export default function LoginPage() {
         if (signUpError) {
           setError(signUpError.message);
         } else if (data.user) {
-          // メール確認が必要な場合
+          // 既に登録済みの場合
           if (data.user.identities?.length === 0) {
             setMessage('このメールアドレスは既に登録されています');
+          } else if (data.session) {
+            // セッションが作成された = Email Confirmation OFF = 自動ログイン成功
+            setMessage('アカウントを作成しました');
+            // オンボーディングへリダイレクト
+            router.push('/app/onboarding');
+            router.refresh();
           } else {
+            // セッションがない = Email Confirmation ON = メール確認が必要
             setMessage(
               '確認メールをお送りしました。メール内のリンクをクリックしてアカウントを有効化してください。'
             );
