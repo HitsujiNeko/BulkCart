@@ -638,13 +638,90 @@ export function generatePlan(recipes: Recipe[], goal: Goal): Plan {
 
 ## 📚 参考ドキュメント
 
-開発時は以下のドキュメントを参照すること：
+開発時は以下のドキュメントを**必ず参照**すること。AIは実装前に該当フェーズのドキュメントを `read_file` で読み込み、仕様に準拠したコードを生成する。
 
-- [PRD (要件定義)](../docs/prd.md)
-- [データベース設計](../docs/database-design.md)
-- [API 仕様書](../docs/api-specification.md)
-- [献立生成アルゴリズム](../docs/meal-planner-algorithm.md)
-- [アーキテクチャ（コストゼロ版）](../docs/architecture-simple.md)
+### 🎯 Phase 1-2: 要件定義・設計（必読）
+
+#### ビジネス要件
+- **[PRD (要件定義)](../docs/prd.md)** ← 最重要
+  - ターゲットペルソナ、ユースケース、MVP スコープ、KPI
+- [競合分析](../docs/competitive-analysis.md)
+  - あすけん、カロミル、Eat This Much との差別化
+- [差別化戦略](../docs/differentiation-strategy.md)
+  - BulkCart の 5つの独自価値
+- [アプリレビュー分析](../docs/app-review-analysis.md)
+  - ユーザーの不満・要望（献立の困り、買い物の課題）
+
+#### アーキテクチャ
+- **[アーキテクチャ（コストゼロ版）](../docs/architecture-simple.md)** ← 必読
+  - Vercel + Supabase + Upstash の無料枠構成
+  - **重要**: MCP Server は使用禁止（すべて lib/* で実装）
+- **[データベース設計](../docs/database-design.md)** ← 必読
+  - ER図、テーブル定義、RLS ポリシー
+- **[API 仕様書](../docs/api-specification.md)** ← 必読
+  - エンドポイント一覧、Request/Response 型
+- **[献立生成アルゴリズム](../docs/meal-planner-algorithm.md)** ← 必読
+  - Greedy Algorithm、スコアリング関数、食材共通化ロジック
+
+#### UI設計
+- **[デザインシステム](../docs/ui-design/design-system.md)** ← 必読（Phase 4以降）
+  - カラーパレット（オレンジ×赤）、タイポグラフィ、コンポーネントスタイル
+- [画面フロー](../docs/ui-design/screen-flow.md)
+  - 7画面の遷移図（mermaid）
+- [ワイヤーフレーム](../docs/ui-design/wireframes.md)
+  - ASCII ワイヤーフレーム（LP, オンボーディング, 献立表示等）
+- [コンポーネント一覧](../docs/ui-design/components.md)
+  - shadcn/ui コンポーネント使用箇所
+
+### ⚙️ Phase 3: 環境構築・インフラ
+
+- [Supabase セットアップ](../docs/supabase-setup.md)
+  - プロジェクト作成、Auth 設定、RLS 有効化
+- [Upstash セットアップ](../docs/upstash-setup.md)
+  - Redis 無料枠の設定
+- [Vercel デプロイ](../docs/deployment.md)
+  - 本番・Staging デプロイ手順
+- [環境変数チェックリスト](../docs/environment-variables-checklist.md)
+  - `.env.local` に必要な変数一覧
+
+### 📋 プロジェクト管理
+
+- [ラベル定義](../docs/project-management/labels.md)
+  - Priority, Type, Status のラベル体系
+- [Sprint スケジュール](../docs/project-management/sprint-schedule.md)
+  - 2週間 Sprint のマイルストーン
+
+---
+
+## 🔍 ドキュメント参照の実装ルール
+
+### Phase 4以降の実装時の手順
+
+1. **実装前に該当ドキュメントを読む**
+   ```
+   例: Phase 4.3（献立表示画面）実装前
+   → read_file("docs/ui-design/wireframes.md") で献立画面のワイヤーフレーム確認
+   → read_file("docs/ui-design/design-system.md") でカラー・コンポーネントスタイル確認
+   → read_file("docs/api-specification.md") で献立取得APIの仕様確認
+   ```
+
+2. **仕様に準拠したコードを生成**
+   - デザインシステムのカラーパレット（Primary: オレンジ）を使用
+   - API仕様書の Request/Response 型に準拠
+   - ワイヤーフレームのレイアウトに従う
+
+3. **不明点は semantic_search で調査**
+   ```
+   例: 「献立生成のスコアリング関数の仕様は？」
+   → semantic_search("献立生成 スコアリング 増量 減量")
+   → docs/meal-planner-algorithm.md がヒット
+   ```
+
+### 禁止事項
+
+- ❌ **ドキュメントを読まずに実装** → 仕様違反のリスク
+- ❌ **mcp-integration-design.md を参照** → MCP Server は使用禁止
+- ❌ **古い BluePrint/Context を参照** → 最新の docs/ を参照すること
 
 ---
 
