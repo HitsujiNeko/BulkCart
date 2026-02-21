@@ -249,11 +249,11 @@
 ---
 
 ### 5.3 🤖 買い物リスト生成ロジック
-- [ ] 献立から食材を抽出する関数（`lib/planner/grocery.ts`）
-- [ ] ingredient の正規化処理（鶏むね、鶏胸 → 鶏むね）
-- [ ] カテゴリ別集計（肉/魚/卵乳/野菜/主食/調味料）
-- [ ] API エンドポイント実装 (`app/api/plan/[id]/grocery/route.ts`)
-- [ ] レスポンス形式の型定義（TypeScript）
+- [x] 献立から食材を抽出する関数（`lib/planner/grocery.ts`）
+- [x] ingredient の正規化処理（鶏むね、鶏胸 → 鶏むね）
+- [x] カテゴリ別集計（肉/魚/卵乳/野菜/主食/調味料）
+- [x] API エンドポイント実装 (`app/api/plan/[id]/grocery/route.ts`)
+- [x] レスポンス形式の型定義（TypeScript）
 
 **AI実行プロンプト例**: 「Phase 5.3の買い物リスト生成ロジックを実装して」
 

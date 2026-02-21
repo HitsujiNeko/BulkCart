@@ -119,3 +119,25 @@ export interface GroceryList {
   categories: GroceryCategory[];
   total_estimated_price: number;
 }
+
+/**
+ * 作り置き段取りタスク
+ */
+export interface PrepTask {
+  time: string; // HH:MM形式（例: '00:05'）
+  duration_minutes: number; // 所要時間（分）
+  task: string; // タスク名（例: '鶏むね下処理（1.2kg）'）
+  description: string; // 詳細説明
+  recipes: string[]; // 関連レシピ名リスト
+}
+
+/**
+ * 作り置き段取りタイムライン
+ */
+export interface PrepTimeline {
+  plan_id: string;
+  week_start_date: string; // YYYY-MM-DD
+  prep_day: string; // 曜日（例: '日曜日'）
+  total_time_minutes: number; // 合計所要時間
+  tasks: PrepTask[]; // タスクリスト（時系列順）
+}
