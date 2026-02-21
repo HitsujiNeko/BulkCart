@@ -16,8 +16,19 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // /app/* へのアクセスは認証が必要
-  if (request.nextUrl.pathname.startsWith('/app')) {
+  // 保護が必要なパス（認証必須）
+  const protectedPaths = [
+    '/onboarding',
+    '/plan',
+    '/recipes',
+    '/settings',
+  ];
+  
+  const isProtectedPath = protectedPaths.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  );
+
+  if (isProtectedPath) {
     if (!user) {
       // 未認証の場合はログインページにリダイレクト
       const redirectUrl = new URL('/login', request.url);
@@ -33,7 +44,7 @@ export async function middleware(request: NextRequest) {
       request.nextUrl.pathname === '/signup')
   ) {
     // 認証済みの場合は献立ページにリダイレクト
-    return NextResponse.redirect(new URL('/app/plan/current', request.url));
+    return NextResponse.redirect(new URL('/plan/current', request.url));
   }
 
   return response;
