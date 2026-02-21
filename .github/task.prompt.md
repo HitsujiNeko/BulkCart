@@ -204,11 +204,11 @@
 ---
 
 ### 4.4 🤖 レイアウト・ナビゲーション実装
-- [ ] Header コンポーネント（ロゴ、ユーザーメニュー）
-- [ ] Navigation（Sidebar or Bottom Nav）
-- [ ] Responsive Design の基本設定（モバイル優先）
-- [ ] Loading / Error コンポーネント
-- [ ] `app/(app)/layout.tsx` として実装
+- [x] Header コンポーネント（ロゴ、ユーザーメニュー）
+- [x] Navigation（Sidebar or Bottom Nav）
+- [x] Responsive Design の基本設定（モバイル優先）
+- [x] Loading / Error コンポーネント
+- [x] `app/(app)/layout.tsx` として実装
 
 **AI実行プロンプト例**: 「Phase 4.4のレイアウトとナビゲーションを実装して」
 
