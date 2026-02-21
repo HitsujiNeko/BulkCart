@@ -4,48 +4,84 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* BulkCart Design System - Light Mode */
+    /* 筋トレ民向け：力強いオレンジ×赤の配色 */
+    
+    --background: 0 0% 100%; /* 純白背景 */
+    --foreground: 20 14% 20%; /* ダークブラウン（読みやすい） */
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 20 14% 20%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --popover-foreground: 20 14% 20%;
+    
+    /* Primary: 力強いオレンジ（メインCTA、ロゴ） */
+    --primary: 25 95% 53%; /* 鮮やかなオレンジ #FF7A1A */
+    --primary-foreground: 0 0% 100%; /* 白文字 */
+    
+    /* Secondary: 薄いオレンジ（背景、補助要素） */
+    --secondary: 25 100% 95%; /* 淡いオレンジ */
+    --secondary-foreground: 25 70% 30%; /* 濃いオレンジ文字 */
+    
+    /* Muted: グレー系（非アクティブ要素） */
+    --muted: 20 10% 95%; /* 暖色寄りグレー */
+    --muted-foreground: 20 5% 50%; /* ミディアムグレー */
+    
+    /* Accent: 情熱的な赤（重要な通知、増量目標） */
+    --accent: 0 84% 60%; /* 鮮やかな赤 #E63946 */
+    --accent-foreground: 0 0% 100%; /* 白文字 */
+    
+    /* Destructive: エラー・削除（赤系） */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 20 10% 88%; /* 薄いグレーボーダー */
+    --input: 20 10% 88%;
+    --ring: 25 95% 53%; /* フォーカスリング：オレンジ */
+    
+    /* Border Radius: 程よい丸み（モダン×力強さ） */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    /* BulkCart Design System - Dark Mode */
+    /* ダークモード：視認性を保ちつつ力強さを維持 */
+    
+    --background: 20 10% 10%; /* ダークブラウン背景 */
+    --foreground: 25 10% 95%; /* オフホワイト */
+    
+    --card: 20 10% 13%;
+    --card-foreground: 25 10% 95%;
+    
+    --popover: 20 10% 10%;
+    --popover-foreground: 25 10% 95%;
+    
+    /* Primary: 少し落ち着いたオレンジ（目に優しい） */
+    --primary: 25 90% 58%; /* やや明るいオレンジ */
+    --primary-foreground: 20 10% 10%; /* ダーク背景 */
+    
+    /* Secondary: ダークトーンのオレンジ */
+    --secondary: 25 20% 20%;
+    --secondary-foreground: 25 80% 70%;
+    
+    /* Muted: ダークグレー */
+    --muted: 20 10% 20%;
+    --muted-foreground: 20 5% 60%;
+    
+    /* Accent: 落ち着いた赤（目に優しい） */
+    --accent: 0 70% 55%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 20 10% 25%;
+    --input: 20 10% 25%;
+    --ring: 25 90% 58%;
   }
 }
 
