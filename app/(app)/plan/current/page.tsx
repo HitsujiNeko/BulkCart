@@ -7,97 +7,12 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { RecipeCard } from '@/components/recipe/recipe-card';
-import { CalendarDays, ShoppingCart, ClipboardList, RefreshCw, Dumbbell } from 'lucide-react';
-import type { Plan, PlanItem } from '@/types/models';
-
-/**
- * モックデータ（Phase 5.2まで）
- */
-const MOCK_PLAN: Plan = {
-  id: 'mock-plan-1',
-  user_id: 'mock-user-1',
-  week_start_date: '2026-02-17',
-  goal: 'bulk',
-  total_protein_g: 980,
-  total_calories: 14560,
-  created_at: '2026-02-18T10:30:00Z',
-  items: [
-    // 月曜
-    {
-      id: 'item-1',
-      day_of_week: 0,
-      meal_slot: 'lunch',
-      recipe: {
-        id: 'recipe-1',
-        name: '鶏むね肉の塩麹焼き',
-        description: '高たんぱく・低脂質の定番レシピ',
-        protein_g: 38,
-        fat_g: 5,
-        carb_g: 60,
-        calories: 420,
-        cooking_time: 30,
-        difficulty: 'easy',
-        tags: ['high-protein', 'low-fat', 'batchable'],
-      },
-    },
-    {
-      id: 'item-2',
-      day_of_week: 0,
-      meal_slot: 'dinner',
-      recipe: {
-        id: 'recipe-2',
-        name: '豆腐そぼろ丼',
-        description: 'たんぱく質たっぷりのヘルシー丼',
-        protein_g: 32,
-        fat_g: 12,
-        carb_g: 55,
-        calories: 440,
-        cooking_time: 20,
-        difficulty: 'easy',
-        tags: ['high-protein', 'balanced'],
-      },
-    },
-    // 火曜
-    {
-      id: 'item-3',
-      day_of_week: 1,
-      meal_slot: 'lunch',
-      recipe: {
-        id: 'recipe-3',
-        name: 'ツナ卵オートミール',
-        description: '朝食やランチに最適な時短レシピ',
-        protein_g: 35,
-        fat_g: 8,
-        carb_g: 45,
-        calories: 380,
-        cooking_time: 10,
-        difficulty: 'easy',
-        tags: ['high-protein', 'quick'],
-      },
-    },
-    {
-      id: 'item-4',
-      day_of_week: 1,
-      meal_slot: 'dinner',
-      recipe: {
-        id: 'recipe-4',
-        name: '鮭と野菜のレンチン',
-        description: '簡単レンジ調理で栄養バランス◎',
-        protein_g: 30,
-        fat_g: 10,
-        carb_g: 50,
-        calories: 400,
-        cooking_time: 15,
-        difficulty: 'easy',
-        tags: ['balanced', 'quick'],
-      },
-    },
-  ],
-};
+import { CalendarDays, ShoppingCart, ClipboardList, RefreshCw, Dumbbell, Loader2 } from 'lucide-react';
+import type { Plan } from '@/types/models';
 
 /**
  * 曜日ラベル
@@ -116,7 +31,7 @@ const MEAL_SLOT_LABELS = {
 /**
  * 空状態コンポーネント
  */
-function EmptyState() {
+function EmptyState({ onGenerate, isGenerating }: { onGenerate: () => void; isGenerating: boolean }) {
   return (
     <Card className="shadow-lg">
       <CardContent className="flex flex-col items-center justify-center py-16 px-4 text-center space-y-6">
@@ -133,14 +48,19 @@ function EmptyState() {
           </p>
         </div>
         
-        <Button size="lg" disabled className="gap-2">
-          <Dumbbell size={20} />
-          献立を生成（Phase 5.2で実装予定）
+        <Button size="lg" onClick={onGenerate} disabled={isGenerating} className="gap-2">
+          {isGenerating ? (
+            <>
+              <Loader2 size={20} className="animate-spin" />
+              生成中...
+            </>
+          ) : (
+            <>
+              <Dumbbell size={20} />
+              献立を生成
+            </>
+          )}
         </Button>
-        
-        <p className="text-xs text-muted-foreground">
-          ※ 献立生成エンジンは Phase 5.2 で実装されます
-        </p>
       </CardContent>
     </Card>
   );
@@ -150,9 +70,61 @@ function EmptyState() {
  * 献立表示ページ
  */
 export default function PlanCurrentPage() {
-  // Phase 5.2まではモックデータ使用（空状態 or モック切り替え可能）
-  const [showMockData, setShowMockData] = useState(true);
-  const plan = showMockData ? MOCK_PLAN : null;
+  const [plan, setPlan] = useState<Plan | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // 献立データ取得
+  useEffect(() => {
+    fetchCurrentPlan();
+  }, []);
+
+  async function fetchCurrentPlan() {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      // TODO: 実装予定 - GET /api/plan/current で今週の献立を取得
+      // 現在はプランなしとして扱う
+      setPlan(null);
+    } catch (err) {
+      console.error('Failed to fetch plan:', err);
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  // 献立生成
+  async function handleGeneratePlan() {
+    try {
+      setIsGenerating(true);
+      setError(null);
+
+      const response = await fetch('/api/plan/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to generate plan');
+      }
+
+      const result = await response.json();
+      await fetchCurrentPlan(); // 生成後に再取得
+      
+      // 成功メッセージ表示（オプション）
+      console.log(result.message);
+    } catch (err) {
+      console.error('Failed to generate plan:', err);
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setIsGenerating(false);
+    }
+  }
 
   // 曜日ごとに献立をグループ化
   const itemsByDay = plan ? (
@@ -182,14 +154,19 @@ export default function PlanCurrentPage() {
               今週の献立
             </h1>
             
-            {/* Phase 5.2まで実装されないボタン */}
+            {/* 再生成ボタン */}
             <Button 
               variant="outline" 
               size="sm" 
-              disabled
+              onClick={handleGeneratePlan}
+              disabled={isGenerating}
               className="gap-2"
             >
-              <RefreshCw size={16} />
+              {isGenerating ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <RefreshCw size={16} />
+              )}
               再生成
             </Button>
           </div>
@@ -218,20 +195,26 @@ export default function PlanCurrentPage() {
 
       {/* メインコンテンツ */}
       <div className="max-w-4xl mx-auto p-4 md:p-6 space-y-6">
-        {/* デバッグ用トグル（Phase 5.2で削除） */}
-        <div className="flex justify-center">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowMockData(!showMockData)}
-          >
-            {showMockData ? '空状態を表示' : 'モックデータを表示'}
-          </Button>
-        </div>
+        {/* エラー表示 */}
+        {error && (
+          <Card className="border-red-500 bg-red-50 dark:bg-red-950">
+            <CardContent className="py-4">
+              <p className="text-red-700 dark:text-red-300 text-sm">
+                エラー: {error}
+              </p>
+            </CardContent>
+          </Card>
+        )}
 
-        {/* 献立表示 or 空状態 */}
-        {!plan ? (
-          <EmptyState />
+        {/* ローディング */}
+        {isLoading ? (
+          <Card className="shadow-lg">
+            <CardContent className="flex items-center justify-center py-16">
+              <Loader2 size={40} className="animate-spin text-primary" />
+            </CardContent>
+          </Card>
+        ) : !plan ? (
+          <EmptyState onGenerate={handleGeneratePlan} isGenerating={isGenerating} />
         ) : (
           <>
             {/* 各曜日の献立 */}

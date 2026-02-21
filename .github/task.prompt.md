@@ -231,16 +231,16 @@
 ---
 
 ### 5.2 🤖 献立生成エンジン実装
-- [ ] 目標PFC計算関数（`lib/planner/targets.ts`）
-- [ ] スコアリング関数実装（`lib/planner/scoring.ts`）
+- [x] 目標PFC計算関数（`lib/planner/targets.ts`）
+- [x] スコアリング関数実装（`lib/planner/scoring.ts`）
   - 増量: 高たんぱく + 高炭水化物
   - 減量: 高たんぱく + 低脂質
   - 維持: バランス
-- [ ] 制約条件フィルタリング（`lib/planner/filters.ts`）
-- [ ] 献立生成メイン関数（`lib/planner/generate.ts`）
+- [x] 制約条件フィルタリング（`lib/planner/filters.ts`）
+- [x] 献立生成メイン関数（`lib/planner/generate.ts`）
   - Greedy Algorithm実装
   - 食材共通化ロジック
-- [ ] API エンドポイント実装 (`app/api/plan/generate/route.ts`)
+- [x] API エンドポイント実装 (`app/api/plan/generate/route.ts`)
   - lib/planner/generate.tsを呼び出し
 - [ ] Unit Test（Vitest）を 3-5 個作成
 

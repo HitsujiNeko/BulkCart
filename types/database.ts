@@ -26,9 +26,10 @@ export interface Database {
         Row: {
           id: string;
           goal: 'bulk' | 'cut' | 'maintain';
-          weight_kg: number;
+          weight_kg: number | null;
           training_days_per_week: number;
-          cooking_time_per_meal: number;
+          cooking_time_weekday: number | null;
+          cooking_time_weekend: number | null;
           budget_level: 'low' | 'medium' | 'high';
           allergies: string[] | null;
           disliked_ingredients: string[] | null;
@@ -40,9 +41,10 @@ export interface Database {
         Insert: {
           id: string;
           goal: 'bulk' | 'cut' | 'maintain';
-          weight_kg: number;
+          weight_kg?: number | null;
           training_days_per_week: number;
-          cooking_time_per_meal: number;
+          cooking_time_weekday?: number | null;
+          cooking_time_weekend?: number | null;
           budget_level?: 'low' | 'medium' | 'high';
           allergies?: string[] | null;
           disliked_ingredients?: string[] | null;
@@ -54,9 +56,10 @@ export interface Database {
         Update: {
           id?: string;
           goal?: 'bulk' | 'cut' | 'maintain';
-          weight_kg?: number;
+          weight_kg?: number | null;
           training_days_per_week?: number;
-          cooking_time_per_meal?: number;
+          cooking_time_weekday?: number | null;
+          cooking_time_weekend?: number | null;
           budget_level?: 'low' | 'medium' | 'high';
           allergies?: string[] | null;
           disliked_ingredients?: string[] | null;
@@ -70,72 +73,72 @@ export interface Database {
         Row: {
           id: string;
           name: string;
-          description: string | null;
-          cooking_time_minutes: number;
+          cooking_time: number;
           difficulty: 'easy' | 'medium' | 'hard';
-          calories_per_serving: number;
-          protein_per_serving: number;
-          fat_per_serving: number;
-          carbs_per_serving: number;
+          protein_g: number;
+          fat_g: number;
+          carb_g: number;
+          calories: number;
           tags: string[];
+          steps: Json;
           image_url: string | null;
           created_at: string;
-          updated_at: string;
         };
         Insert: {
           id?: string;
           name: string;
-          description?: string | null;
-          cooking_time_minutes: number;
+          cooking_time: number;
           difficulty: 'easy' | 'medium' | 'hard';
-          calories_per_serving: number;
-          protein_per_serving: number;
-          fat_per_serving: number;
-          carbs_per_serving: number;
+          protein_g: number;
+          fat_g: number;
+          carb_g: number;
+          calories: number;
           tags?: string[];
+          steps?: Json;
           image_url?: string | null;
           created_at?: string;
-          updated_at?: string;
         };
         Update: {
           id?: string;
           name?: string;
-          description?: string | null;
-          cooking_time_minutes?: number;
+          cooking_time?: number;
           difficulty?: 'easy' | 'medium' | 'hard';
-          calories_per_serving?: number;
-          protein_per_serving?: number;
-          fat_per_serving?: number;
-          carbs_per_serving?: number;
+          protein_g?: number;
+          fat_g?: number;
+          carb_g?: number;
+          calories?: number;
           tags?: string[];
+          steps?: Json;
           image_url?: string | null;
           created_at?: string;
-          updated_at?: string;
         };
       };
       ingredients: {
         Row: {
           id: string;
           name: string;
-          normalized_name: string;
-          category: 'meat' | 'fish' | 'dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          aliases: string[];
+          category: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
           unit: string;
+          avg_price_per_unit: number | null;
           created_at: string;
         };
         Insert: {
           id?: string;
           name: string;
-          normalized_name: string;
-          category: 'meat' | 'fish' | 'dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          aliases?: string[];
+          category: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
           unit: string;
+          avg_price_per_unit?: number | null;
           created_at?: string;
         };
         Update: {
           id?: string;
           name?: string;
-          normalized_name?: string;
-          category?: 'meat' | 'fish' | 'dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          aliases?: string[];
+          category?: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
           unit?: string;
+          avg_price_per_unit?: number | null;
           created_at?: string;
         };
       };
@@ -144,97 +147,77 @@ export interface Database {
           id: string;
           recipe_id: string;
           ingredient_id: string;
-          quantity: number;
-          created_at: string;
+          amount: number;
+          unit: string;
+          notes: string | null;
         };
         Insert: {
           id?: string;
           recipe_id: string;
           ingredient_id: string;
-          quantity: number;
-          created_at?: string;
+          amount: number;
+          unit: string;
+          notes?: string | null;
         };
         Update: {
           id?: string;
           recipe_id?: string;
           ingredient_id?: string;
-          quantity?: number;
-          created_at?: string;
+          amount?: number;
+          unit?: string;
+          notes?: string | null;
         };
       };
-      recipe_steps: {
-        Row: {
-          id: string;
-          recipe_id: string;
-          step_number: number;
-          instruction: string;
-          created_at: string;
-        };
-        Insert: {
-          id?: string;
-          recipe_id: string;
-          step_number: number;
-          instruction: string;
-          created_at?: string;
-        };
-        Update: {
-          id?: string;
-          recipe_id?: string;
-          step_number?: number;
-          instruction?: string;
-          created_at?: string;
-        };
-      };
-      meal_plans: {
+      plans: {
         Row: {
           id: string;
           user_id: string;
           week_start_date: string;
-          status: 'draft' | 'active' | 'completed';
+          goal: 'bulk' | 'cut' | 'maintain';
+          total_protein_g: number | null;
+          total_calories: number | null;
           created_at: string;
-          updated_at: string;
         };
         Insert: {
           id?: string;
           user_id: string;
           week_start_date: string;
-          status?: 'draft' | 'active' | 'completed';
+          goal: 'bulk' | 'cut' | 'maintain';
+          total_protein_g?: number | null;
+          total_calories?: number | null;
           created_at?: string;
-          updated_at?: string;
         };
         Update: {
           id?: string;
           user_id?: string;
           week_start_date?: string;
-          status?: 'draft' | 'active' | 'completed';
+          goal?: 'bulk' | 'cut' | 'maintain';
+          total_protein_g?: number | null;
+          total_calories?: number | null;
           created_at?: string;
-          updated_at?: string;
         };
       };
-      meal_slots: {
+      plan_items: {
         Row: {
           id: string;
-          meal_plan_id: string;
-          recipe_id: string;
+          plan_id: string;
           day_of_week: number;
-          meal_type: 'lunch' | 'dinner' | 'snack';
-          created_at: string;
+          meal_slot: 'lunch' | 'dinner' | 'snack';
+          recipe_id: string;
         };
         Insert: {
           id?: string;
-          meal_plan_id: string;
-          recipe_id: string;
+          plan_id: string;
           day_of_week: number;
-          meal_type: 'lunch' | 'dinner' | 'snack';
-          created_at?: string;
+          meal_slot: 'lunch' | 'dinner' | 'snack';
+          recipe_id: string;
         };
         Update: {
           id?: string;
-          meal_plan_id?: string;
-          recipe_id?: string;
+          plan_id?: string;
           day_of_week?: number;
-          meal_type?: 'lunch' | 'dinner' | 'snack';
-          created_at?: string;
+          meal_slot?: 'lunch' | 'dinner' | 'snack';
+          recipe_id?: string;
         };
       };
     };
