@@ -117,11 +117,11 @@
 ---
 
 ### 3.3 🤖 Next.js プロジェクト雛形作成
-- [ ] Next.js (App Router) の基本構成をセットアップ
-- [ ] TypeScript 設定（`tsconfig.json`）
-- [ ] Tailwind CSS 設定（`tailwind.config.ts`）
-- [ ] ESLint / Prettier 設定（`.eslintrc.json`, `.prettierrc`）
-- [ ] 基本的なディレクトリ構造を作成
+- [x] Next.js (App Router) の基本構成をセットアップ
+- [x] TypeScript 設定（`tsconfig.json`）
+- [x] Tailwind CSS 設定（`tailwind.config.ts`）
+- [x] ESLint / Prettier 設定（`.eslintrc.json`, `.prettierrc`）
+- [x] 基本的なディレクトリ構造を作成
   ```
   app/
   ├── (auth)/
@@ -134,17 +134,17 @@
   ├── nutrition/
   types/
   ```
-- [ ] ビジネスロジック層の雛形作成（lib/配下）
+- [x] ビジネスロジック層の雛形作成（lib/配下）
 
 **AI実行プロンプト例**: 「Phase 3.3のNext.jsプロジェクトを初期化して」
 
 ---
 
 ### 3.4 🤖 Supabase 設定ファイル作成
-- [ ] Supabase クライアント初期化コード作成（`lib/supabase.ts`）
-- [ ] `.env.example` に Supabase の環境変数を追加
-- [ ] 初期テーブル作成 SQL を `supabase/migrations/` に作成
-- [ ] Auth 設定の手順書を作成（`docs/supabase-setup.md`）
+- [x] Supabase クライアント初期化コード作成（`lib/supabase.ts`）
+- [x] `.env.example` に Supabase の環境変数を追加
+- [x] 初期テーブル作成 SQL を `supabase/migrations/` に作成
+- [x] Auth 設定の手順書を作成（`docs/supabase-setup.md`）
 
 **注**: 実際の Supabase プロジェクト作成は 👤人間が supabase.com で実施（5分作業）
 
@@ -153,9 +153,9 @@
 ---
 
 ### 3.5 🤖 Vercel デプロイ設定ファイル作成
-- [ ] `vercel.json` 作成（環境変数、ビルド設定）
-- [ ] デプロイ手順書を作成（`docs/deployment.md`）
-- [ ] Environment Variables のチェックリストを作成
+- [x] `vercel.json` 作成（環境変数、ビルド設定）
+- [x] デプロイ手順書を作成（`docs/deployment.md`）
+- [x] Environment Variables のチェックリストを作成
 
 **注**: 実際の Vercel 接続は 👤人間が vercel.com で実施（3分作業）
 
@@ -166,38 +166,38 @@
 ## Phase 4: フロントエンド基盤開発（Week 3-4）
 
 ### 4.1 🤖 認証基盤実装
-- [ ] Supabase Auth との連携コード実装
+- [x] Supabase Auth との連携コード実装
   - ログイン/サインアップページ (`app/(auth)/login/page.tsx`)
   - 認証状態管理（Context or hook）
   - Protected Route ミドルウェア (`middleware.ts`)
-- [ ] ログアウト機能
-- [ ] セッション管理とリダイレクト処理
-- [ ] 認証エラーハンドリング
+- [x] ログアウト機能
+- [x] セッション管理とリダイレクト処理
+- [x] 認証エラーハンドリング
 
 **AI実行プロンプト例**: 「Phase 4.1の認証基盤を実装して」
 
 ---
 
 ### 4.2 🤖 オンボーディング画面実装
-- [ ] Step 1: 利用目的選択（増量/減量/維持）
-- [ ] Step 2: トレーニング日数、調理時間の入力
-- [ ] Step 3: 予算感、アレルギー、苦手食材の入力
-- [ ] フォームバリデーション（Zod + React Hook Form）
-- [ ] user_profile テーブルへの保存 API
-- [ ] プログレスバー表示
-- [ ] `app/(app)/onboarding/page.tsx` として実装
+- [x] Step 1: 利用目的選択（増量/減量/維持）
+- [x] Step 2: トレーニング日数、調理時間の入力
+- [x] Step 3: 予算感、アレルギー、苦手食材の入力
+- [x] フォームバリデーション（Zod + React Hook Form）
+- [x] user_profile テーブルへの保存 API
+- [x] プログレスバー表示
+- [x] `app/(app)/onboarding/page.tsx` として実装
 
 **AI実行プロンプト例**: 「Phase 4.2のオンボーディング画面を実装して」
 
 ---
 
 ### 4.3 🤖 献立表示画面実装
-- [ ] user_profile 読み込み
-- [ ] 献立生成ボタン（ローディング状態付き）
-- [ ] 週次献立の表示（カレンダー形式 or リスト）
-- [ ] 各日の meal_slot（昼/夜/間食）表示
-- [ ] レシピ詳細への遷移リンク
-- [ ] `app/(app)/plan/[week]/page.tsx` として実装
+- [x] user_profile 読み込み
+- [x] 献立生成ボタン（ローディング状態付き）
+- [x] 週次献立の表示（カレンダー形式 or リスト）
+- [x] 各日の meal_slot（昼/夜/間食）表示
+- [x] レシピ詳細への遷移リンク
+- [x] `app/(app)/plan/[week]/page.tsx` として実装
 
 **AI実行プロンプト例**: 「Phase 4.3の献立表示画面を実装して」
 
