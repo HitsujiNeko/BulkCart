@@ -14,7 +14,8 @@
     "db:types": "supabase gen types typescript --local > types/database.ts",
     "db:migrate": "supabase db push && npm run db:types",
     "db:reset": "supabase db reset && npm run db:types",
-    "db:status": "supabase db diff"
+    "db:status": "supabase db diff",
+    "db:seed": "tsx supabase/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
