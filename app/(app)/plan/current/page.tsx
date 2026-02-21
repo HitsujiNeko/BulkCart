@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { RecipeCard } from '@/components/recipe/recipe-card';
@@ -70,6 +71,7 @@ function EmptyState({ onGenerate, isGenerating }: { onGenerate: () => void; isGe
  * 献立表示ページ
  */
 export default function PlanCurrentPage() {
+  const router = useRouter();
   const [plan, setPlan] = useState<Plan | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -275,21 +277,21 @@ export default function PlanCurrentPage() {
               <Button
                 variant="outline"
                 size="lg"
-                disabled
+                onClick={() => router.push(`/plan/${plan.id}/grocery`)}
                 className="gap-2"
               >
                 <ShoppingCart size={20} />
-                買い物リストを見る（Phase 6.1）
+                買い物リストを見る
               </Button>
               
               <Button
                 variant="outline"
                 size="lg"
-                disabled
+                onClick={() => router.push(`/plan/${plan.id}/prep`)}
                 className="gap-2"
               >
                 <ClipboardList size={20} />
-                段取りを見る（Phase 6.3）
+                段取りを見る
               </Button>
             </div>
           </>
