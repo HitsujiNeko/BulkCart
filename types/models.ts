@@ -77,3 +77,45 @@ export interface UserProfile {
   created_at: string;
   updated_at: string;
 }
+
+/**
+ * 食材カテゴリ
+ */
+export type IngredientCategory = 
+  | 'meat' 
+  | 'fish' 
+  | 'egg_dairy' 
+  | 'vegetable' 
+  | 'grain' 
+  | 'seasoning' 
+  | 'other';
+
+/**
+ * 買い物リストアイテム
+ */
+export interface GroceryItem {
+  ingredient_id: string;
+  name: string;
+  amount: number;
+  unit: string;
+  estimated_price: number | null;
+}
+
+/**
+ * カテゴリ別買い物リスト
+ */
+export interface GroceryCategory {
+  category: IngredientCategory;
+  category_name: string;
+  items: GroceryItem[];
+}
+
+/**
+ * 買い物リスト（献立から自動生成）
+ */
+export interface GroceryList {
+  plan_id: string;
+  week_start_date: string; // YYYY-MM-DD
+  categories: GroceryCategory[];
+  total_estimated_price: number;
+}

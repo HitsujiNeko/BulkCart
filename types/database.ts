@@ -220,6 +220,35 @@ export interface Database {
           recipe_id?: string;
         };
       };
+      grocery_items: {
+        Row: {
+          id: string;
+          plan_id: string;
+          ingredient_id: string;
+          amount: number;
+          unit: string;
+          category: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          estimated_price: number | null;
+        };
+        Insert: {
+          id?: string;
+          plan_id: string;
+          ingredient_id: string;
+          amount: number;
+          unit: string;
+          category: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          estimated_price?: number | null;
+        };
+        Update: {
+          id?: string;
+          plan_id?: string;
+          ingredient_id?: string;
+          amount?: number;
+          unit?: string;
+          category?: 'meat' | 'fish' | 'egg_dairy' | 'vegetable' | 'grain' | 'seasoning' | 'other';
+          estimated_price?: number | null;
+        };
+      };
     };
     Views: {
       [_ in never]: never;

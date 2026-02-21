@@ -242,7 +242,7 @@
   - 食材共通化ロジック
 - [x] API エンドポイント実装 (`app/api/plan/generate/route.ts`)
   - lib/planner/generate.tsを呼び出し
-- [ ] Unit Test（Vitest）を 3-5 個作成
+- [x] Unit Test（Vitest）を 3-5 個作成
 
 **AI実行プロンプト例**: 「Phase 5.2の献立生成エンジンを実装して」
 
