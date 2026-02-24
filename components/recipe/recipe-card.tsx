@@ -9,6 +9,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Clock, Dumbbell } from 'lucide-react';
 
 export interface RecipeCardProps {
@@ -32,8 +33,10 @@ export interface RecipeCardProps {
   calories: number;
   /** 画像URL（オプション） */
   imageUrl?: string;
-  /** クリック時のコールバック */
+  /** クリック時のコールバック（オプション） */
   onClick?: () => void;
+  /** リンクを無効化（デフォルト: false） */
+  disableLink?: boolean;
 }
 
 /**
@@ -41,6 +44,8 @@ export interface RecipeCardProps {
  * 
  * レシピ情報を表示するカードコンポーネント。
  * デザインシステム準拠（オレンジ×赤）、Responsive対応。
+ * 
+ * デフォルトでレシピ詳細ページへのリンクを持ちます。
  */
 export function RecipeCard({
   id,
@@ -54,6 +59,7 @@ export function RecipeCard({
   calories,
   imageUrl,
   onClick,
+  disableLink = false,
 }: RecipeCardProps) {
   // 難易度ラベルの日本語化
   const difficultyLabel = {
@@ -69,10 +75,10 @@ export function RecipeCard({
     hard: 'bg-red-500/10 text-red-700 dark:text-red-400',
   }[difficulty];
 
-  return (
+  const cardContent = (
     <Card 
       data-recipe-id={id}
-      className="shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer overflow-hidden"
+      className="shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer overflow-hidden h-full"
       onClick={onClick}
     >
       {/* レシピ画像 */}
@@ -143,5 +149,17 @@ export function RecipeCard({
         </div>
       </CardContent>
     </Card>
+  );
+
+  // リンクが無効化されている場合は、カードコンテンツのみを返す
+  if (disableLink || onClick) {
+    return cardContent;
+  }
+
+  // デフォルトではレシピ詳細ページへのリンク
+  return (
+    <Link href={`/recipes/${id}`} className="block h-full">
+      {cardContent}
+    </Link>
   );
 }

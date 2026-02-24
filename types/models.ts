@@ -141,3 +141,42 @@ export interface PrepTimeline {
   total_time_minutes: number; // 合計所要時間
   tasks: PrepTask[]; // タスクリスト（時系列順）
 }
+
+/**
+ * レシピの食材情報
+ */
+export interface RecipeIngredient {
+  ingredient_id: string;
+  name: string;
+  amount: number;
+  unit: string;
+  notes: string | null;
+}
+
+/**
+ * レシピの調理手順
+ */
+export interface RecipeStep {
+  step: number;
+  text: string;
+}
+
+/**
+ * レシピ詳細情報（食材・手順含む）
+ */
+export interface RecipeDetail {
+  id: string;
+  name: string;
+  description: string | null;
+  cooking_time: number;
+  difficulty: Difficulty;
+  protein_g: number;
+  fat_g: number;
+  carb_g: number;
+  calories: number;
+  tags: string[];
+  image_url: string | null;
+  ingredients: RecipeIngredient[];
+  steps: RecipeStep[];
+  created_at: string;
+}
